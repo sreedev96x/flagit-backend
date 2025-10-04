@@ -1,0 +1,6 @@
+# .gitignore
+/target
+/.idea
+*.iml
+serviceAccountKey.json
+keystore.jks

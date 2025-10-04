@@ -1,0 +1,8 @@
+# Ignore everything by default
+*
+
+# But, UN-ignore these specific files needed for the build
+!/target/flagit-backend-1.0-SNAPSHOT.jar
+!/keystore.jks
+!/serviceAccountKey.json
+!/Dockerfile
