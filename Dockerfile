@@ -4,10 +4,14 @@ FROM openjdk:17-jdk-slim AS build
 WORKDIR /app
 COPY .mvn/ .mvn
 COPY mvnw pom.xml ./
+
+# --- THIS IS THE FIX ---
+# Make the Maven wrapper executable inside the container
+RUN chmod +x mvnw
+
+# Continue with the build
 RUN ./mvnw dependency:go-offline
 COPY src ./src
-
-# This command builds the .jar file inside the container
 RUN ./mvnw package -DskipTests
 
 # Stage 2: Create the final, lightweight image
